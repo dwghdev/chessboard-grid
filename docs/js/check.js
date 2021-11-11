@@ -14,7 +14,8 @@ export function check() {
 	let wking = document.getElementsByClassName("white king").length;
 	if (bpawn < 8) {
 		html = '';
-		for (let i = 0; i < (8 - bpawn); i++) html += "&#" + bp + ";"
+		for (let i = 0; i < (8 - bpawn); i++) 
+			html += '<img src="img/black-pawn.png" alt="White Pawn" />'
 		document.getElementById("bpawn").innerHTML = html;
 	}
 	if (brook < 2) {

@@ -1,0 +1,31 @@
+@mixin boardGrid($num, $size) {
+  display: grid;
+  /*grid-template-columns: repeat(8, 70px);
+  grid-template-rows: repeat(8, 70px);*/
+  grid-template: repeat($num, $size) / repeat($num, $size);
+  justify-content: center;
+  margin-top: 50px;
+
+  .box {
+    display: inherit;
+    justify-content: center;
+    align-items: center;
+  }
+
+  img {
+    height: 50px; 
+  }
+}
+
+@mixin boardLightColors($color) {
+  :nth-child(-2n+8), 
+  :nth-child(8) ~ :nth-child(-2n+15), 
+  :nth-child(16) ~ :nth-child(-2n+24),
+  :nth-child(24) ~ :nth-child(-2n+31),
+  :nth-child(32) ~ :nth-child(-2n+40),
+  :nth-child(40) ~ :nth-child(-2n+47),
+  :nth-child(48) ~ :nth-child(-2n+56),
+  :nth-child(56) ~ :nth-child(-2n+63) {
+    background-color: $color;
+  }
+}

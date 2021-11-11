@@ -5,26 +5,37 @@
 }
 
 body {
-  display: grid;
-  justify-content: center;
-  align-items: center;
   width: 100vw;
   height: 100vh;
-  font-family: Arial, Helvetica, sans-serif;
   background: #2b2b2b;
   overflow: hidden;
 }
 
 #board {
   display: grid;
+  /*grid-template-columns: repeat(8, 70px);
+  grid-template-rows: repeat(8, 70px);*/
+  grid-template: repeat(8, 70px)/repeat(8, 70px);
+  justify-content: center;
+  margin-top: 50px;
 }
-
-.box {
-  width: 60px;
-  height: 60px;
+#board .box {
+  display: inherit;
   justify-content: center;
   align-items: center;
-  cursor: pointer;
+}
+#board img {
+  height: 50px;
+}
+#board :nth-child(-2n+8),
+#board :nth-child(8) ~ :nth-child(-2n+15),
+#board :nth-child(16) ~ :nth-child(-2n+24),
+#board :nth-child(24) ~ :nth-child(-2n+31),
+#board :nth-child(32) ~ :nth-child(-2n+40),
+#board :nth-child(40) ~ :nth-child(-2n+47),
+#board :nth-child(48) ~ :nth-child(-2n+56),
+#board :nth-child(56) ~ :nth-child(-2n+63) {
+  background-color: #bbbbbb;
 }
 
 #blackkill p, #whitekill p {
@@ -42,24 +53,6 @@ body {
   color: black;
 }
 
-.row {
-  height: 60px;
-  display: flex;
-}
-
-.row:nth-child(odd) .box:nth-child(odd) {
-  background: transparent;
-}
-
-.row:nth-child(even) .box:nth-child(even) {
-  background: transparent;
-}
-
-.row:nth-child(odd) .box:nth-child(even),
-.row:nth-child(even) .box:nth-child(odd) {
-  background: #bbbbbb;
-}
-
 #winner {
   width: 100vw;
   height: 100vh;
@@ -75,355 +68,40 @@ body {
   color: whitesmoke;
 }
 
-@media (max-width: 2560px) {
-  /* 4K */
-  .row {
-    height: 170px;
+@keyframes clockwise {
+  15% {
+    transform: rotate(0.125turn) scale(0.5, 0.5);
   }
-
-  .box {
-    width: 170px;
-    height: 170px;
+  30% {
+    transform: rotate(0.25turn) scale(1, 1);
   }
-
-  #board .row img {
-    height: 165px;
+  100% {
+    transform: rotate(0.25turn) scale(1, 1);
   }
 }
-@media (max-width: 1440px) {
-  .row {
-    height: 135px;
+@keyframes counter-clockwise {
+  15% {
+    transform: rotate(-0.125turn) scale(0.5, 0.5);
   }
-
-  .box {
-    width: 135px;
-    height: 135px;
+  30% {
+    transform: rotate(-0.25turn) scale(1, 1);
   }
-
-  #board .row img {
-    height: 130px;
+  100% {
+    transform: rotate(-0.25turn) scale(1, 1);
   }
 }
-@media (max-width: 1366px) {
-  .row {
-    height: 120px;
+@keyframes c {
+  0% {
+    background-color: transparent;
   }
-
-  .box {
-    width: 120px;
-    height: 120px;
+  50% {
+    background-color: transparent;
   }
-
-  #board .row img {
-    height: 115px;
+  51% {
+    background-color: #bbbbbb;
   }
-}
-@media (max-width: 1366px) {
-  .row {
-    height: 95px;
-  }
-
-  .box {
-    width: 95px;
-    height: 95px;
-  }
-
-  #board .row img {
-    height: 90px;
-  }
-}
-@media (max-width: 1200px) {
-  .row {
-    height: 75px;
-  }
-
-  .box {
-    width: 75px;
-    height: 75px;
-  }
-
-  #board .row img {
-    height: 70px;
-  }
-}
-@media (max-width: 1024px) {
-  .row {
-    height: 95px;
-  }
-
-  .box {
-    width: 95px;
-    height: 95px;
-  }
-
-  #board .row img {
-    height: 90px;
-  }
-}
-@media (max-height: 1024px) {
-  .row {
-    height: 95px;
-  }
-
-  .box {
-    width: 95px;
-    height: 95px;
-  }
-
-  #board .row img {
-    height: 90px;
-  }
-}
-@media (max-width: 768px) {
-  .row {
-    height: 75px;
-  }
-
-  .box {
-    width: 75px;
-    height: 75px;
-  }
-
-  #board .row img {
-    height: 70px;
-  }
-}
-@media (max-height: 768px) {
-  .row {
-    height: 75px;
-  }
-
-  .box {
-    width: 75px;
-    height: 75px;
-  }
-
-  #board .row img {
-    height: 70px;
-  }
-}
-@media (max-width: 600px) {
-  .row {
-    height: 65px;
-  }
-
-  .box {
-    width: 65px;
-    height: 65px;
-  }
-
-  #board .row img {
-    height: 60px;
-  }
-}
-@media (max-height: 600px) {
-  .row {
-    height: 65px;
-  }
-
-  .box {
-    width: 65px;
-    height: 65px;
-  }
-
-  #board .row img {
-    height: 60px;
-  }
-}
-@media (max-width: 540px) {
-  .row {
-    height: 60px;
-  }
-
-  .box {
-    width: 60px;
-    height: 60px;
-  }
-
-  #board .row img {
-    height: 55px;
-  }
-}
-@media (max-height: 540px) {
-  .row {
-    height: 60px;
-  }
-
-  .box {
-    width: 60px;
-    height: 60px;
-  }
-
-  #board .row img {
-    height: 55px;
-  }
-}
-@media (max-width: 480px) {
-  .row {
-    height: 55px;
-  }
-
-  .box {
-    width: 55px;
-    height: 55px;
-  }
-
-  #board .row img {
-    height: 50px;
-  }
-}
-@media (max-height: 480px) {
-  .row {
-    height: 55px;
-  }
-
-  .box {
-    width: 55px;
-    height: 55px;
-  }
-
-  #board .row img {
-    height: 50px;
-  }
-}
-@media (max-width: 425px) {
-  .row {
-    height: 45px;
-  }
-
-  .box {
-    width: 45px;
-    height: 45px;
-  }
-
-  #board .row img {
-    height: 40px;
-  }
-}
-@media (max-height: 425px) {
-  .row {
-    height: 45px;
-  }
-
-  .box {
-    width: 45px;
-    height: 45px;
-  }
-
-  #board .row img {
-    height: 40px;
-  }
-}
-@media (max-width: 375px) {
-  .row {
-    height: 40px;
-  }
-
-  .box {
-    width: 40px;
-    height: 40px;
-  }
-
-  #board .row img {
-    height: 35px;
-  }
-}
-@media (max-height: 375px) {
-  .row {
-    height: 40px;
-  }
-
-  .box {
-    width: 40px;
-    height: 40px;
-  }
-
-  #board .row img {
-    height: 35px;
-  }
-}
-@media (max-width: 320px) {
-  .row {
-    height: 35px;
-  }
-
-  .box {
-    width: 35px;
-    height: 35px;
-  }
-
-  #board .row img {
-    height: 30px;
-  }
-}
-@media (max-height: 320px) {
-  .row {
-    height: 35px;
-  }
-
-  .box {
-    width: 35px;
-    height: 35px;
-  }
-
-  #board .row img {
-    height: 30px;
-  }
-}
-@media (max-width: 280px) {
-  .row {
-    height: 33px;
-  }
-
-  .box {
-    width: 33px;
-    height: 33px;
-  }
-
-  #board .row img {
-    height: 30px;
-  }
-}
-@media (max-height: 280px) {
-  .row {
-    height: 33px;
-  }
-
-  .box {
-    width: 33px;
-    height: 33px;
-  }
-
-  #board .row img {
-    height: 30px;
-  }
-}
-@media (max-width: 240px) {
-  .row {
-    height: 28px;
-  }
-
-  .box {
-    width: 28px;
-    height: 28px;
-  }
-
-  #board .row img {
-    height: 25px;
-  }
-}
-@media (max-height: 240px) {
-  .row {
-    height: 28px;
-  }
-
-  .box {
-    width: 28px;
-    height: 28px;
-  }
-
-  #board .row img {
-    height: 25px;
+  100% {
+    background-color: #bbbbbb;
   }
 }
 
