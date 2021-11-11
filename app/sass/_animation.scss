@@ -1,0 +1,46 @@
+@mixin boxAnimation() {
+  animation: clockwise $ad linear;
+  @for $i from 0 to 4 {
+    &:nth-child(n+#{$i*16+1}):nth-child(-n+#{$i*16+8}){
+      background-color: $boxlight;
+      animation-delay: $i*$deld;
+      &:nth-child(odd){
+        background-color: $boxdark;
+        animation-name: counter-clockwise;
+        animation-delay: $ad/2 + $i*$deld;
+      }
+    }
+    &:nth-child(n+#{$i*16+9}):nth-child(-n+#{$i*16+16}){
+      animation-delay: $deld/2 + $i*$deld;
+      background-color: $boxlight;
+      &:nth-child(even){
+        animation-name: counter-clockwise;
+        background-color: $boxdark;
+        animation-delay: $ad/2 + $deld/2 + $i*$deld;
+      }
+    }
+  }
+}
+
+@keyframes clockwise {
+  15%{
+    transform: rotate(0.25turn) scale(0.5,0.5);
+  }
+  30%{
+    transform: rotate(0.5turn) scale(1,1);
+  }
+  100%{
+    transform: rotate(1turn) scale(1,1);
+  }
+}
+@keyframes counter-clockwise {
+  15%{
+    transform: rotate(-0.25turn) scale(0.5,0.5);
+  }
+  30%{
+    transform: rotate(-0.5turn) scale(1,1);
+  }
+  100%{
+    transform: rotate(-1turn) scale(1,1);
+  }
+}

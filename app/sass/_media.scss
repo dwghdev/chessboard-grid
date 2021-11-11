@@ -1,0 +1,112 @@
+@import 'boardgrid';
+
+@mixin mediaQueries() {
+  @media(max-width: $hd4k) { /* 4K */
+    @include boardGrid(200px);
+  }
+
+  @media(max-width: $laptopL) {
+    @include boardGrid(120px);
+  }
+
+  @media(max-width: 1366px) {
+   
+  }
+
+  @media(max-width: 1366px) {
+    @include boardGrid(90px);
+  }
+
+  @media(max-width: 1200px) {
+   
+  }
+
+  @media(max-width: $laptop) {
+    @include boardGrid(95px);
+  }
+
+  @media(max-height: $laptop) {
+    
+  }
+
+  @media(max-width: $tablet) {
+    @include boardGrid(70px);
+  }
+
+  @media(max-height: $tablet) {
+    @include boardGrid(70px);
+  }
+
+  @media(max-width: 600px) {
+   
+  }
+
+  @media(max-height: 600px) {
+   
+  }
+
+  @media(max-width: 540px) {
+   
+  }
+  @media(max-height: 540px) {
+   
+  }
+
+  @media(max-width: 480px) {
+    @include boardGrid(50px);
+  }
+
+  @media(max-height: 480px) {
+    @include boardGrid(45px);
+  }
+
+  @media(max-width: $mobileL) {
+    @include boardGrid(45px);
+  }
+
+  @media(max-height: $mobileL) {
+  }
+  @media(max-height: $nexus5x) {
+    @include boardGrid(40px);
+  }
+
+  @media(max-height: $nexus4) {
+    @include boardGrid(43px);
+  }
+
+  @media(max-width: $mobileM) {
+    @include boardGrid(40px);
+  }
+
+  @media(max-height: $mobileM) {
+    
+  }
+
+  @media(max-height: $lumia550) {
+    @include boardGrid(38px);
+  }
+
+  @media(max-width: $mobileS) {
+    @include boardGrid(35px);
+  }
+
+  @media(max-height: $mobileS) {
+  
+  }
+
+  @media(max-width: $galaxyFold) {
+    @include boardGrid(30px);
+  }
+
+  @media(max-height: 280px) {
+    
+  }
+
+  @media(max-width: $jioPhone2) {
+    @include boardGrid(27px);
+  }
+
+  @media(max-height: 240px) {
+   
+  }
+}

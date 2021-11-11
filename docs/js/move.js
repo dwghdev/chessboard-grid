@@ -25,7 +25,7 @@ export function piece(val) {
           //looping to get all three cells at once
           for (let i = 0; i < 2; i++) {
             j += 8;
-            document.getElementById('b' + val).style.filter = 'brightness(1)';
+            document.getElementById('b' + val).firstChild.style.transform = 'scale(1.25)';
             //checking next cell is empty
             if (document.getElementById('b' + (val + j)).classList[2] === 'none') {
               document.getElementById('b' + (val + j)).style.filter = 'brightness(1)';
@@ -34,7 +34,7 @@ export function piece(val) {
           } //end of for loop
         } else {
           j += 8
-          document.getElementById('b' + val).style.filter = 'brightness(1)';
+          document.getElementById('b' + val).firstChild.style.transform = 'scale(1)';
           //checking next cell
           if (document.getElementById('b' + (val + j)).classList[2] === 'none') {
             document.getElementById('b' + (val + j)).style.filter = 'brightness(1)';

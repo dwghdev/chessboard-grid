@@ -1,19 +1,28 @@
-@mixin boardGrid($num, $size) {
-  display: grid;
+@import 'variables', 'animation';
+
+@mixin boardGrid($size) {
+  display: inherit;
   /*grid-template-columns: repeat(8, 70px);
   grid-template-rows: repeat(8, 70px);*/
-  grid-template: repeat($num, $size) / repeat($num, $size);
+  grid-template: repeat(8, $size) / repeat(8, $size);
   justify-content: center;
-  margin-top: 50px;
+  padding-top: 15px;
+  overflow: hidden;
+  width: ($size * 8) + 25px;
+  height: ($size * 8) + 28px;
+
 
   .box {
     display: inherit;
     justify-content: center;
     align-items: center;
+    @include boxAnimation;
+    height: $size;
+    width: $size;
   }
 
   img {
-    height: 50px; 
+    height: $size * 0.75; 
   }
 }
 

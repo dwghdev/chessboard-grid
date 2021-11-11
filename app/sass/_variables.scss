@@ -1,5 +1,25 @@
+// colors and fonts
 $bgcolor: #2b2b2b;
 $boxdark: transparent;
 $boxlight: #bbbbbb;
 $fontstyle: Arial, Helvetica, sans-serif;
-$HD4k: 2560px;
+
+// animations
+$ad: .75s;
+$deld: $ad/2;
+
+// resolutions
+$hd4k: 2560px;
+$laptopL: 1440px;
+$laptop: 1024px;
+$tablet: 768px;
+$mobileL: 425px;
+$mobileM: 375px;
+$mobileS: 320px;
+
+$galaxyFold: 280px;
+$lumia550: 360px;
+$nexus4: 384px;
+$nexus5x: 412px;
+$nokiaN9: 854px;
+$jioPhone2: 240px;

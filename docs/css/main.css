@@ -4,28 +4,1574 @@
   box-sizing: border-box;
 }
 
+@keyframes clockwise {
+  15% {
+    transform: rotate(0.25turn) scale(0.5, 0.5);
+  }
+  30% {
+    transform: rotate(0.5turn) scale(1, 1);
+  }
+  100% {
+    transform: rotate(1turn) scale(1, 1);
+  }
+}
+@keyframes counter-clockwise {
+  15% {
+    transform: rotate(-0.25turn) scale(0.5, 0.5);
+  }
+  30% {
+    transform: rotate(-0.5turn) scale(1, 1);
+  }
+  100% {
+    transform: rotate(-1turn) scale(1, 1);
+  }
+}
 body {
   width: 100vw;
   height: 100vh;
   background: #2b2b2b;
   overflow: hidden;
+  display: grid;
+  align-items: center;
+  justify-content: center;
 }
 
-#board {
-  display: grid;
-  /*grid-template-columns: repeat(8, 70px);
-  grid-template-rows: repeat(8, 70px);*/
-  grid-template: repeat(8, 70px)/repeat(8, 70px);
-  justify-content: center;
-  margin-top: 50px;
+@media (max-width: 2560px) {
+  #board {
+    /* 4K */
+    display: inherit;
+    /*grid-template-columns: repeat(8, 70px);
+    grid-template-rows: repeat(8, 70px);*/
+    grid-template: repeat(8, 200px)/repeat(8, 200px);
+    justify-content: center;
+    padding-top: 15px;
+    overflow: hidden;
+    width: 1625px;
+    height: 1628px;
+  }
+  #board .box {
+    display: inherit;
+    justify-content: center;
+    align-items: center;
+    animation: clockwise 0.75s linear;
+    height: 200px;
+    width: 200px;
+  }
+  #board .box:nth-child(n+1):nth-child(-n+8) {
+    background-color: #bbbbbb;
+    animation-delay: 0s;
+  }
+  #board .box:nth-child(n+1):nth-child(-n+8):nth-child(odd) {
+    background-color: transparent;
+    animation-name: counter-clockwise;
+    animation-delay: 0.375s;
+  }
+  #board .box:nth-child(n+9):nth-child(-n+16) {
+    animation-delay: 0.1875s;
+    background-color: #bbbbbb;
+  }
+  #board .box:nth-child(n+9):nth-child(-n+16):nth-child(even) {
+    animation-name: counter-clockwise;
+    background-color: transparent;
+    animation-delay: 0.5625s;
+  }
+  #board .box:nth-child(n+17):nth-child(-n+24) {
+    background-color: #bbbbbb;
+    animation-delay: 0.375s;
+  }
+  #board .box:nth-child(n+17):nth-child(-n+24):nth-child(odd) {
+    background-color: transparent;
+    animation-name: counter-clockwise;
+    animation-delay: 0.75s;
+  }
+  #board .box:nth-child(n+25):nth-child(-n+32) {
+    animation-delay: 0.5625s;
+    background-color: #bbbbbb;
+  }
+  #board .box:nth-child(n+25):nth-child(-n+32):nth-child(even) {
+    animation-name: counter-clockwise;
+    background-color: transparent;
+    animation-delay: 0.9375s;
+  }
+  #board .box:nth-child(n+33):nth-child(-n+40) {
+    background-color: #bbbbbb;
+    animation-delay: 0.75s;
+  }
+  #board .box:nth-child(n+33):nth-child(-n+40):nth-child(odd) {
+    background-color: transparent;
+    animation-name: counter-clockwise;
+    animation-delay: 1.125s;
+  }
+  #board .box:nth-child(n+41):nth-child(-n+48) {
+    animation-delay: 0.9375s;
+    background-color: #bbbbbb;
+  }
+  #board .box:nth-child(n+41):nth-child(-n+48):nth-child(even) {
+    animation-name: counter-clockwise;
+    background-color: transparent;
+    animation-delay: 1.3125s;
+  }
+  #board .box:nth-child(n+49):nth-child(-n+56) {
+    background-color: #bbbbbb;
+    animation-delay: 1.125s;
+  }
+  #board .box:nth-child(n+49):nth-child(-n+56):nth-child(odd) {
+    background-color: transparent;
+    animation-name: counter-clockwise;
+    animation-delay: 1.5s;
+  }
+  #board .box:nth-child(n+57):nth-child(-n+64) {
+    animation-delay: 1.3125s;
+    background-color: #bbbbbb;
+  }
+  #board .box:nth-child(n+57):nth-child(-n+64):nth-child(even) {
+    animation-name: counter-clockwise;
+    background-color: transparent;
+    animation-delay: 1.6875s;
+  }
+  #board img {
+    height: 150px;
+  }
 }
-#board .box {
-  display: inherit;
-  justify-content: center;
-  align-items: center;
+@media (max-width: 1440px) {
+  #board {
+    display: inherit;
+    /*grid-template-columns: repeat(8, 70px);
+    grid-template-rows: repeat(8, 70px);*/
+    grid-template: repeat(8, 120px)/repeat(8, 120px);
+    justify-content: center;
+    padding-top: 15px;
+    overflow: hidden;
+    width: 985px;
+    height: 988px;
+  }
+  #board .box {
+    display: inherit;
+    justify-content: center;
+    align-items: center;
+    animation: clockwise 0.75s linear;
+    height: 120px;
+    width: 120px;
+  }
+  #board .box:nth-child(n+1):nth-child(-n+8) {
+    background-color: #bbbbbb;
+    animation-delay: 0s;
+  }
+  #board .box:nth-child(n+1):nth-child(-n+8):nth-child(odd) {
+    background-color: transparent;
+    animation-name: counter-clockwise;
+    animation-delay: 0.375s;
+  }
+  #board .box:nth-child(n+9):nth-child(-n+16) {
+    animation-delay: 0.1875s;
+    background-color: #bbbbbb;
+  }
+  #board .box:nth-child(n+9):nth-child(-n+16):nth-child(even) {
+    animation-name: counter-clockwise;
+    background-color: transparent;
+    animation-delay: 0.5625s;
+  }
+  #board .box:nth-child(n+17):nth-child(-n+24) {
+    background-color: #bbbbbb;
+    animation-delay: 0.375s;
+  }
+  #board .box:nth-child(n+17):nth-child(-n+24):nth-child(odd) {
+    background-color: transparent;
+    animation-name: counter-clockwise;
+    animation-delay: 0.75s;
+  }
+  #board .box:nth-child(n+25):nth-child(-n+32) {
+    animation-delay: 0.5625s;
+    background-color: #bbbbbb;
+  }
+  #board .box:nth-child(n+25):nth-child(-n+32):nth-child(even) {
+    animation-name: counter-clockwise;
+    background-color: transparent;
+    animation-delay: 0.9375s;
+  }
+  #board .box:nth-child(n+33):nth-child(-n+40) {
+    background-color: #bbbbbb;
+    animation-delay: 0.75s;
+  }
+  #board .box:nth-child(n+33):nth-child(-n+40):nth-child(odd) {
+    background-color: transparent;
+    animation-name: counter-clockwise;
+    animation-delay: 1.125s;
+  }
+  #board .box:nth-child(n+41):nth-child(-n+48) {
+    animation-delay: 0.9375s;
+    background-color: #bbbbbb;
+  }
+  #board .box:nth-child(n+41):nth-child(-n+48):nth-child(even) {
+    animation-name: counter-clockwise;
+    background-color: transparent;
+    animation-delay: 1.3125s;
+  }
+  #board .box:nth-child(n+49):nth-child(-n+56) {
+    background-color: #bbbbbb;
+    animation-delay: 1.125s;
+  }
+  #board .box:nth-child(n+49):nth-child(-n+56):nth-child(odd) {
+    background-color: transparent;
+    animation-name: counter-clockwise;
+    animation-delay: 1.5s;
+  }
+  #board .box:nth-child(n+57):nth-child(-n+64) {
+    animation-delay: 1.3125s;
+    background-color: #bbbbbb;
+  }
+  #board .box:nth-child(n+57):nth-child(-n+64):nth-child(even) {
+    animation-name: counter-clockwise;
+    background-color: transparent;
+    animation-delay: 1.6875s;
+  }
+  #board img {
+    height: 90px;
+  }
 }
-#board img {
-  height: 50px;
+@media (max-width: 1366px) {
+  #board {
+    display: inherit;
+    /*grid-template-columns: repeat(8, 70px);
+    grid-template-rows: repeat(8, 70px);*/
+    grid-template: repeat(8, 90px)/repeat(8, 90px);
+    justify-content: center;
+    padding-top: 15px;
+    overflow: hidden;
+    width: 745px;
+    height: 748px;
+  }
+  #board .box {
+    display: inherit;
+    justify-content: center;
+    align-items: center;
+    animation: clockwise 0.75s linear;
+    height: 90px;
+    width: 90px;
+  }
+  #board .box:nth-child(n+1):nth-child(-n+8) {
+    background-color: #bbbbbb;
+    animation-delay: 0s;
+  }
+  #board .box:nth-child(n+1):nth-child(-n+8):nth-child(odd) {
+    background-color: transparent;
+    animation-name: counter-clockwise;
+    animation-delay: 0.375s;
+  }
+  #board .box:nth-child(n+9):nth-child(-n+16) {
+    animation-delay: 0.1875s;
+    background-color: #bbbbbb;
+  }
+  #board .box:nth-child(n+9):nth-child(-n+16):nth-child(even) {
+    animation-name: counter-clockwise;
+    background-color: transparent;
+    animation-delay: 0.5625s;
+  }
+  #board .box:nth-child(n+17):nth-child(-n+24) {
+    background-color: #bbbbbb;
+    animation-delay: 0.375s;
+  }
+  #board .box:nth-child(n+17):nth-child(-n+24):nth-child(odd) {
+    background-color: transparent;
+    animation-name: counter-clockwise;
+    animation-delay: 0.75s;
+  }
+  #board .box:nth-child(n+25):nth-child(-n+32) {
+    animation-delay: 0.5625s;
+    background-color: #bbbbbb;
+  }
+  #board .box:nth-child(n+25):nth-child(-n+32):nth-child(even) {
+    animation-name: counter-clockwise;
+    background-color: transparent;
+    animation-delay: 0.9375s;
+  }
+  #board .box:nth-child(n+33):nth-child(-n+40) {
+    background-color: #bbbbbb;
+    animation-delay: 0.75s;
+  }
+  #board .box:nth-child(n+33):nth-child(-n+40):nth-child(odd) {
+    background-color: transparent;
+    animation-name: counter-clockwise;
+    animation-delay: 1.125s;
+  }
+  #board .box:nth-child(n+41):nth-child(-n+48) {
+    animation-delay: 0.9375s;
+    background-color: #bbbbbb;
+  }
+  #board .box:nth-child(n+41):nth-child(-n+48):nth-child(even) {
+    animation-name: counter-clockwise;
+    background-color: transparent;
+    animation-delay: 1.3125s;
+  }
+  #board .box:nth-child(n+49):nth-child(-n+56) {
+    background-color: #bbbbbb;
+    animation-delay: 1.125s;
+  }
+  #board .box:nth-child(n+49):nth-child(-n+56):nth-child(odd) {
+    background-color: transparent;
+    animation-name: counter-clockwise;
+    animation-delay: 1.5s;
+  }
+  #board .box:nth-child(n+57):nth-child(-n+64) {
+    animation-delay: 1.3125s;
+    background-color: #bbbbbb;
+  }
+  #board .box:nth-child(n+57):nth-child(-n+64):nth-child(even) {
+    animation-name: counter-clockwise;
+    background-color: transparent;
+    animation-delay: 1.6875s;
+  }
+  #board img {
+    height: 67.5px;
+  }
+}
+@media (max-width: 1024px) {
+  #board {
+    display: inherit;
+    /*grid-template-columns: repeat(8, 70px);
+    grid-template-rows: repeat(8, 70px);*/
+    grid-template: repeat(8, 95px)/repeat(8, 95px);
+    justify-content: center;
+    padding-top: 15px;
+    overflow: hidden;
+    width: 785px;
+    height: 788px;
+  }
+  #board .box {
+    display: inherit;
+    justify-content: center;
+    align-items: center;
+    animation: clockwise 0.75s linear;
+    height: 95px;
+    width: 95px;
+  }
+  #board .box:nth-child(n+1):nth-child(-n+8) {
+    background-color: #bbbbbb;
+    animation-delay: 0s;
+  }
+  #board .box:nth-child(n+1):nth-child(-n+8):nth-child(odd) {
+    background-color: transparent;
+    animation-name: counter-clockwise;
+    animation-delay: 0.375s;
+  }
+  #board .box:nth-child(n+9):nth-child(-n+16) {
+    animation-delay: 0.1875s;
+    background-color: #bbbbbb;
+  }
+  #board .box:nth-child(n+9):nth-child(-n+16):nth-child(even) {
+    animation-name: counter-clockwise;
+    background-color: transparent;
+    animation-delay: 0.5625s;
+  }
+  #board .box:nth-child(n+17):nth-child(-n+24) {
+    background-color: #bbbbbb;
+    animation-delay: 0.375s;
+  }
+  #board .box:nth-child(n+17):nth-child(-n+24):nth-child(odd) {
+    background-color: transparent;
+    animation-name: counter-clockwise;
+    animation-delay: 0.75s;
+  }
+  #board .box:nth-child(n+25):nth-child(-n+32) {
+    animation-delay: 0.5625s;
+    background-color: #bbbbbb;
+  }
+  #board .box:nth-child(n+25):nth-child(-n+32):nth-child(even) {
+    animation-name: counter-clockwise;
+    background-color: transparent;
+    animation-delay: 0.9375s;
+  }
+  #board .box:nth-child(n+33):nth-child(-n+40) {
+    background-color: #bbbbbb;
+    animation-delay: 0.75s;
+  }
+  #board .box:nth-child(n+33):nth-child(-n+40):nth-child(odd) {
+    background-color: transparent;
+    animation-name: counter-clockwise;
+    animation-delay: 1.125s;
+  }
+  #board .box:nth-child(n+41):nth-child(-n+48) {
+    animation-delay: 0.9375s;
+    background-color: #bbbbbb;
+  }
+  #board .box:nth-child(n+41):nth-child(-n+48):nth-child(even) {
+    animation-name: counter-clockwise;
+    background-color: transparent;
+    animation-delay: 1.3125s;
+  }
+  #board .box:nth-child(n+49):nth-child(-n+56) {
+    background-color: #bbbbbb;
+    animation-delay: 1.125s;
+  }
+  #board .box:nth-child(n+49):nth-child(-n+56):nth-child(odd) {
+    background-color: transparent;
+    animation-name: counter-clockwise;
+    animation-delay: 1.5s;
+  }
+  #board .box:nth-child(n+57):nth-child(-n+64) {
+    animation-delay: 1.3125s;
+    background-color: #bbbbbb;
+  }
+  #board .box:nth-child(n+57):nth-child(-n+64):nth-child(even) {
+    animation-name: counter-clockwise;
+    background-color: transparent;
+    animation-delay: 1.6875s;
+  }
+  #board img {
+    height: 71.25px;
+  }
+}
+@media (max-width: 768px) {
+  #board {
+    display: inherit;
+    /*grid-template-columns: repeat(8, 70px);
+    grid-template-rows: repeat(8, 70px);*/
+    grid-template: repeat(8, 70px)/repeat(8, 70px);
+    justify-content: center;
+    padding-top: 15px;
+    overflow: hidden;
+    width: 585px;
+    height: 588px;
+  }
+  #board .box {
+    display: inherit;
+    justify-content: center;
+    align-items: center;
+    animation: clockwise 0.75s linear;
+    height: 70px;
+    width: 70px;
+  }
+  #board .box:nth-child(n+1):nth-child(-n+8) {
+    background-color: #bbbbbb;
+    animation-delay: 0s;
+  }
+  #board .box:nth-child(n+1):nth-child(-n+8):nth-child(odd) {
+    background-color: transparent;
+    animation-name: counter-clockwise;
+    animation-delay: 0.375s;
+  }
+  #board .box:nth-child(n+9):nth-child(-n+16) {
+    animation-delay: 0.1875s;
+    background-color: #bbbbbb;
+  }
+  #board .box:nth-child(n+9):nth-child(-n+16):nth-child(even) {
+    animation-name: counter-clockwise;
+    background-color: transparent;
+    animation-delay: 0.5625s;
+  }
+  #board .box:nth-child(n+17):nth-child(-n+24) {
+    background-color: #bbbbbb;
+    animation-delay: 0.375s;
+  }
+  #board .box:nth-child(n+17):nth-child(-n+24):nth-child(odd) {
+    background-color: transparent;
+    animation-name: counter-clockwise;
+    animation-delay: 0.75s;
+  }
+  #board .box:nth-child(n+25):nth-child(-n+32) {
+    animation-delay: 0.5625s;
+    background-color: #bbbbbb;
+  }
+  #board .box:nth-child(n+25):nth-child(-n+32):nth-child(even) {
+    animation-name: counter-clockwise;
+    background-color: transparent;
+    animation-delay: 0.9375s;
+  }
+  #board .box:nth-child(n+33):nth-child(-n+40) {
+    background-color: #bbbbbb;
+    animation-delay: 0.75s;
+  }
+  #board .box:nth-child(n+33):nth-child(-n+40):nth-child(odd) {
+    background-color: transparent;
+    animation-name: counter-clockwise;
+    animation-delay: 1.125s;
+  }
+  #board .box:nth-child(n+41):nth-child(-n+48) {
+    animation-delay: 0.9375s;
+    background-color: #bbbbbb;
+  }
+  #board .box:nth-child(n+41):nth-child(-n+48):nth-child(even) {
+    animation-name: counter-clockwise;
+    background-color: transparent;
+    animation-delay: 1.3125s;
+  }
+  #board .box:nth-child(n+49):nth-child(-n+56) {
+    background-color: #bbbbbb;
+    animation-delay: 1.125s;
+  }
+  #board .box:nth-child(n+49):nth-child(-n+56):nth-child(odd) {
+    background-color: transparent;
+    animation-name: counter-clockwise;
+    animation-delay: 1.5s;
+  }
+  #board .box:nth-child(n+57):nth-child(-n+64) {
+    animation-delay: 1.3125s;
+    background-color: #bbbbbb;
+  }
+  #board .box:nth-child(n+57):nth-child(-n+64):nth-child(even) {
+    animation-name: counter-clockwise;
+    background-color: transparent;
+    animation-delay: 1.6875s;
+  }
+  #board img {
+    height: 52.5px;
+  }
+}
+@media (max-height: 768px) {
+  #board {
+    display: inherit;
+    /*grid-template-columns: repeat(8, 70px);
+    grid-template-rows: repeat(8, 70px);*/
+    grid-template: repeat(8, 70px)/repeat(8, 70px);
+    justify-content: center;
+    padding-top: 15px;
+    overflow: hidden;
+    width: 585px;
+    height: 588px;
+  }
+  #board .box {
+    display: inherit;
+    justify-content: center;
+    align-items: center;
+    animation: clockwise 0.75s linear;
+    height: 70px;
+    width: 70px;
+  }
+  #board .box:nth-child(n+1):nth-child(-n+8) {
+    background-color: #bbbbbb;
+    animation-delay: 0s;
+  }
+  #board .box:nth-child(n+1):nth-child(-n+8):nth-child(odd) {
+    background-color: transparent;
+    animation-name: counter-clockwise;
+    animation-delay: 0.375s;
+  }
+  #board .box:nth-child(n+9):nth-child(-n+16) {
+    animation-delay: 0.1875s;
+    background-color: #bbbbbb;
+  }
+  #board .box:nth-child(n+9):nth-child(-n+16):nth-child(even) {
+    animation-name: counter-clockwise;
+    background-color: transparent;
+    animation-delay: 0.5625s;
+  }
+  #board .box:nth-child(n+17):nth-child(-n+24) {
+    background-color: #bbbbbb;
+    animation-delay: 0.375s;
+  }
+  #board .box:nth-child(n+17):nth-child(-n+24):nth-child(odd) {
+    background-color: transparent;
+    animation-name: counter-clockwise;
+    animation-delay: 0.75s;
+  }
+  #board .box:nth-child(n+25):nth-child(-n+32) {
+    animation-delay: 0.5625s;
+    background-color: #bbbbbb;
+  }
+  #board .box:nth-child(n+25):nth-child(-n+32):nth-child(even) {
+    animation-name: counter-clockwise;
+    background-color: transparent;
+    animation-delay: 0.9375s;
+  }
+  #board .box:nth-child(n+33):nth-child(-n+40) {
+    background-color: #bbbbbb;
+    animation-delay: 0.75s;
+  }
+  #board .box:nth-child(n+33):nth-child(-n+40):nth-child(odd) {
+    background-color: transparent;
+    animation-name: counter-clockwise;
+    animation-delay: 1.125s;
+  }
+  #board .box:nth-child(n+41):nth-child(-n+48) {
+    animation-delay: 0.9375s;
+    background-color: #bbbbbb;
+  }
+  #board .box:nth-child(n+41):nth-child(-n+48):nth-child(even) {
+    animation-name: counter-clockwise;
+    background-color: transparent;
+    animation-delay: 1.3125s;
+  }
+  #board .box:nth-child(n+49):nth-child(-n+56) {
+    background-color: #bbbbbb;
+    animation-delay: 1.125s;
+  }
+  #board .box:nth-child(n+49):nth-child(-n+56):nth-child(odd) {
+    background-color: transparent;
+    animation-name: counter-clockwise;
+    animation-delay: 1.5s;
+  }
+  #board .box:nth-child(n+57):nth-child(-n+64) {
+    animation-delay: 1.3125s;
+    background-color: #bbbbbb;
+  }
+  #board .box:nth-child(n+57):nth-child(-n+64):nth-child(even) {
+    animation-name: counter-clockwise;
+    background-color: transparent;
+    animation-delay: 1.6875s;
+  }
+  #board img {
+    height: 52.5px;
+  }
+}
+@media (max-width: 480px) {
+  #board {
+    display: inherit;
+    /*grid-template-columns: repeat(8, 70px);
+    grid-template-rows: repeat(8, 70px);*/
+    grid-template: repeat(8, 50px)/repeat(8, 50px);
+    justify-content: center;
+    padding-top: 15px;
+    overflow: hidden;
+    width: 425px;
+    height: 428px;
+  }
+  #board .box {
+    display: inherit;
+    justify-content: center;
+    align-items: center;
+    animation: clockwise 0.75s linear;
+    height: 50px;
+    width: 50px;
+  }
+  #board .box:nth-child(n+1):nth-child(-n+8) {
+    background-color: #bbbbbb;
+    animation-delay: 0s;
+  }
+  #board .box:nth-child(n+1):nth-child(-n+8):nth-child(odd) {
+    background-color: transparent;
+    animation-name: counter-clockwise;
+    animation-delay: 0.375s;
+  }
+  #board .box:nth-child(n+9):nth-child(-n+16) {
+    animation-delay: 0.1875s;
+    background-color: #bbbbbb;
+  }
+  #board .box:nth-child(n+9):nth-child(-n+16):nth-child(even) {
+    animation-name: counter-clockwise;
+    background-color: transparent;
+    animation-delay: 0.5625s;
+  }
+  #board .box:nth-child(n+17):nth-child(-n+24) {
+    background-color: #bbbbbb;
+    animation-delay: 0.375s;
+  }
+  #board .box:nth-child(n+17):nth-child(-n+24):nth-child(odd) {
+    background-color: transparent;
+    animation-name: counter-clockwise;
+    animation-delay: 0.75s;
+  }
+  #board .box:nth-child(n+25):nth-child(-n+32) {
+    animation-delay: 0.5625s;
+    background-color: #bbbbbb;
+  }
+  #board .box:nth-child(n+25):nth-child(-n+32):nth-child(even) {
+    animation-name: counter-clockwise;
+    background-color: transparent;
+    animation-delay: 0.9375s;
+  }
+  #board .box:nth-child(n+33):nth-child(-n+40) {
+    background-color: #bbbbbb;
+    animation-delay: 0.75s;
+  }
+  #board .box:nth-child(n+33):nth-child(-n+40):nth-child(odd) {
+    background-color: transparent;
+    animation-name: counter-clockwise;
+    animation-delay: 1.125s;
+  }
+  #board .box:nth-child(n+41):nth-child(-n+48) {
+    animation-delay: 0.9375s;
+    background-color: #bbbbbb;
+  }
+  #board .box:nth-child(n+41):nth-child(-n+48):nth-child(even) {
+    animation-name: counter-clockwise;
+    background-color: transparent;
+    animation-delay: 1.3125s;
+  }
+  #board .box:nth-child(n+49):nth-child(-n+56) {
+    background-color: #bbbbbb;
+    animation-delay: 1.125s;
+  }
+  #board .box:nth-child(n+49):nth-child(-n+56):nth-child(odd) {
+    background-color: transparent;
+    animation-name: counter-clockwise;
+    animation-delay: 1.5s;
+  }
+  #board .box:nth-child(n+57):nth-child(-n+64) {
+    animation-delay: 1.3125s;
+    background-color: #bbbbbb;
+  }
+  #board .box:nth-child(n+57):nth-child(-n+64):nth-child(even) {
+    animation-name: counter-clockwise;
+    background-color: transparent;
+    animation-delay: 1.6875s;
+  }
+  #board img {
+    height: 37.5px;
+  }
+}
+@media (max-height: 480px) {
+  #board {
+    display: inherit;
+    /*grid-template-columns: repeat(8, 70px);
+    grid-template-rows: repeat(8, 70px);*/
+    grid-template: repeat(8, 45px)/repeat(8, 45px);
+    justify-content: center;
+    padding-top: 15px;
+    overflow: hidden;
+    width: 385px;
+    height: 388px;
+  }
+  #board .box {
+    display: inherit;
+    justify-content: center;
+    align-items: center;
+    animation: clockwise 0.75s linear;
+    height: 45px;
+    width: 45px;
+  }
+  #board .box:nth-child(n+1):nth-child(-n+8) {
+    background-color: #bbbbbb;
+    animation-delay: 0s;
+  }
+  #board .box:nth-child(n+1):nth-child(-n+8):nth-child(odd) {
+    background-color: transparent;
+    animation-name: counter-clockwise;
+    animation-delay: 0.375s;
+  }
+  #board .box:nth-child(n+9):nth-child(-n+16) {
+    animation-delay: 0.1875s;
+    background-color: #bbbbbb;
+  }
+  #board .box:nth-child(n+9):nth-child(-n+16):nth-child(even) {
+    animation-name: counter-clockwise;
+    background-color: transparent;
+    animation-delay: 0.5625s;
+  }
+  #board .box:nth-child(n+17):nth-child(-n+24) {
+    background-color: #bbbbbb;
+    animation-delay: 0.375s;
+  }
+  #board .box:nth-child(n+17):nth-child(-n+24):nth-child(odd) {
+    background-color: transparent;
+    animation-name: counter-clockwise;
+    animation-delay: 0.75s;
+  }
+  #board .box:nth-child(n+25):nth-child(-n+32) {
+    animation-delay: 0.5625s;
+    background-color: #bbbbbb;
+  }
+  #board .box:nth-child(n+25):nth-child(-n+32):nth-child(even) {
+    animation-name: counter-clockwise;
+    background-color: transparent;
+    animation-delay: 0.9375s;
+  }
+  #board .box:nth-child(n+33):nth-child(-n+40) {
+    background-color: #bbbbbb;
+    animation-delay: 0.75s;
+  }
+  #board .box:nth-child(n+33):nth-child(-n+40):nth-child(odd) {
+    background-color: transparent;
+    animation-name: counter-clockwise;
+    animation-delay: 1.125s;
+  }
+  #board .box:nth-child(n+41):nth-child(-n+48) {
+    animation-delay: 0.9375s;
+    background-color: #bbbbbb;
+  }
+  #board .box:nth-child(n+41):nth-child(-n+48):nth-child(even) {
+    animation-name: counter-clockwise;
+    background-color: transparent;
+    animation-delay: 1.3125s;
+  }
+  #board .box:nth-child(n+49):nth-child(-n+56) {
+    background-color: #bbbbbb;
+    animation-delay: 1.125s;
+  }
+  #board .box:nth-child(n+49):nth-child(-n+56):nth-child(odd) {
+    background-color: transparent;
+    animation-name: counter-clockwise;
+    animation-delay: 1.5s;
+  }
+  #board .box:nth-child(n+57):nth-child(-n+64) {
+    animation-delay: 1.3125s;
+    background-color: #bbbbbb;
+  }
+  #board .box:nth-child(n+57):nth-child(-n+64):nth-child(even) {
+    animation-name: counter-clockwise;
+    background-color: transparent;
+    animation-delay: 1.6875s;
+  }
+  #board img {
+    height: 33.75px;
+  }
+}
+@media (max-width: 425px) {
+  #board {
+    display: inherit;
+    /*grid-template-columns: repeat(8, 70px);
+    grid-template-rows: repeat(8, 70px);*/
+    grid-template: repeat(8, 45px)/repeat(8, 45px);
+    justify-content: center;
+    padding-top: 15px;
+    overflow: hidden;
+    width: 385px;
+    height: 388px;
+  }
+  #board .box {
+    display: inherit;
+    justify-content: center;
+    align-items: center;
+    animation: clockwise 0.75s linear;
+    height: 45px;
+    width: 45px;
+  }
+  #board .box:nth-child(n+1):nth-child(-n+8) {
+    background-color: #bbbbbb;
+    animation-delay: 0s;
+  }
+  #board .box:nth-child(n+1):nth-child(-n+8):nth-child(odd) {
+    background-color: transparent;
+    animation-name: counter-clockwise;
+    animation-delay: 0.375s;
+  }
+  #board .box:nth-child(n+9):nth-child(-n+16) {
+    animation-delay: 0.1875s;
+    background-color: #bbbbbb;
+  }
+  #board .box:nth-child(n+9):nth-child(-n+16):nth-child(even) {
+    animation-name: counter-clockwise;
+    background-color: transparent;
+    animation-delay: 0.5625s;
+  }
+  #board .box:nth-child(n+17):nth-child(-n+24) {
+    background-color: #bbbbbb;
+    animation-delay: 0.375s;
+  }
+  #board .box:nth-child(n+17):nth-child(-n+24):nth-child(odd) {
+    background-color: transparent;
+    animation-name: counter-clockwise;
+    animation-delay: 0.75s;
+  }
+  #board .box:nth-child(n+25):nth-child(-n+32) {
+    animation-delay: 0.5625s;
+    background-color: #bbbbbb;
+  }
+  #board .box:nth-child(n+25):nth-child(-n+32):nth-child(even) {
+    animation-name: counter-clockwise;
+    background-color: transparent;
+    animation-delay: 0.9375s;
+  }
+  #board .box:nth-child(n+33):nth-child(-n+40) {
+    background-color: #bbbbbb;
+    animation-delay: 0.75s;
+  }
+  #board .box:nth-child(n+33):nth-child(-n+40):nth-child(odd) {
+    background-color: transparent;
+    animation-name: counter-clockwise;
+    animation-delay: 1.125s;
+  }
+  #board .box:nth-child(n+41):nth-child(-n+48) {
+    animation-delay: 0.9375s;
+    background-color: #bbbbbb;
+  }
+  #board .box:nth-child(n+41):nth-child(-n+48):nth-child(even) {
+    animation-name: counter-clockwise;
+    background-color: transparent;
+    animation-delay: 1.3125s;
+  }
+  #board .box:nth-child(n+49):nth-child(-n+56) {
+    background-color: #bbbbbb;
+    animation-delay: 1.125s;
+  }
+  #board .box:nth-child(n+49):nth-child(-n+56):nth-child(odd) {
+    background-color: transparent;
+    animation-name: counter-clockwise;
+    animation-delay: 1.5s;
+  }
+  #board .box:nth-child(n+57):nth-child(-n+64) {
+    animation-delay: 1.3125s;
+    background-color: #bbbbbb;
+  }
+  #board .box:nth-child(n+57):nth-child(-n+64):nth-child(even) {
+    animation-name: counter-clockwise;
+    background-color: transparent;
+    animation-delay: 1.6875s;
+  }
+  #board img {
+    height: 33.75px;
+  }
+}
+@media (max-height: 412px) {
+  #board {
+    display: inherit;
+    /*grid-template-columns: repeat(8, 70px);
+    grid-template-rows: repeat(8, 70px);*/
+    grid-template: repeat(8, 40px)/repeat(8, 40px);
+    justify-content: center;
+    padding-top: 15px;
+    overflow: hidden;
+    width: 345px;
+    height: 348px;
+  }
+  #board .box {
+    display: inherit;
+    justify-content: center;
+    align-items: center;
+    animation: clockwise 0.75s linear;
+    height: 40px;
+    width: 40px;
+  }
+  #board .box:nth-child(n+1):nth-child(-n+8) {
+    background-color: #bbbbbb;
+    animation-delay: 0s;
+  }
+  #board .box:nth-child(n+1):nth-child(-n+8):nth-child(odd) {
+    background-color: transparent;
+    animation-name: counter-clockwise;
+    animation-delay: 0.375s;
+  }
+  #board .box:nth-child(n+9):nth-child(-n+16) {
+    animation-delay: 0.1875s;
+    background-color: #bbbbbb;
+  }
+  #board .box:nth-child(n+9):nth-child(-n+16):nth-child(even) {
+    animation-name: counter-clockwise;
+    background-color: transparent;
+    animation-delay: 0.5625s;
+  }
+  #board .box:nth-child(n+17):nth-child(-n+24) {
+    background-color: #bbbbbb;
+    animation-delay: 0.375s;
+  }
+  #board .box:nth-child(n+17):nth-child(-n+24):nth-child(odd) {
+    background-color: transparent;
+    animation-name: counter-clockwise;
+    animation-delay: 0.75s;
+  }
+  #board .box:nth-child(n+25):nth-child(-n+32) {
+    animation-delay: 0.5625s;
+    background-color: #bbbbbb;
+  }
+  #board .box:nth-child(n+25):nth-child(-n+32):nth-child(even) {
+    animation-name: counter-clockwise;
+    background-color: transparent;
+    animation-delay: 0.9375s;
+  }
+  #board .box:nth-child(n+33):nth-child(-n+40) {
+    background-color: #bbbbbb;
+    animation-delay: 0.75s;
+  }
+  #board .box:nth-child(n+33):nth-child(-n+40):nth-child(odd) {
+    background-color: transparent;
+    animation-name: counter-clockwise;
+    animation-delay: 1.125s;
+  }
+  #board .box:nth-child(n+41):nth-child(-n+48) {
+    animation-delay: 0.9375s;
+    background-color: #bbbbbb;
+  }
+  #board .box:nth-child(n+41):nth-child(-n+48):nth-child(even) {
+    animation-name: counter-clockwise;
+    background-color: transparent;
+    animation-delay: 1.3125s;
+  }
+  #board .box:nth-child(n+49):nth-child(-n+56) {
+    background-color: #bbbbbb;
+    animation-delay: 1.125s;
+  }
+  #board .box:nth-child(n+49):nth-child(-n+56):nth-child(odd) {
+    background-color: transparent;
+    animation-name: counter-clockwise;
+    animation-delay: 1.5s;
+  }
+  #board .box:nth-child(n+57):nth-child(-n+64) {
+    animation-delay: 1.3125s;
+    background-color: #bbbbbb;
+  }
+  #board .box:nth-child(n+57):nth-child(-n+64):nth-child(even) {
+    animation-name: counter-clockwise;
+    background-color: transparent;
+    animation-delay: 1.6875s;
+  }
+  #board img {
+    height: 30px;
+  }
+}
+@media (max-height: 384px) {
+  #board {
+    display: inherit;
+    /*grid-template-columns: repeat(8, 70px);
+    grid-template-rows: repeat(8, 70px);*/
+    grid-template: repeat(8, 43px)/repeat(8, 43px);
+    justify-content: center;
+    padding-top: 15px;
+    overflow: hidden;
+    width: 369px;
+    height: 372px;
+  }
+  #board .box {
+    display: inherit;
+    justify-content: center;
+    align-items: center;
+    animation: clockwise 0.75s linear;
+    height: 43px;
+    width: 43px;
+  }
+  #board .box:nth-child(n+1):nth-child(-n+8) {
+    background-color: #bbbbbb;
+    animation-delay: 0s;
+  }
+  #board .box:nth-child(n+1):nth-child(-n+8):nth-child(odd) {
+    background-color: transparent;
+    animation-name: counter-clockwise;
+    animation-delay: 0.375s;
+  }
+  #board .box:nth-child(n+9):nth-child(-n+16) {
+    animation-delay: 0.1875s;
+    background-color: #bbbbbb;
+  }
+  #board .box:nth-child(n+9):nth-child(-n+16):nth-child(even) {
+    animation-name: counter-clockwise;
+    background-color: transparent;
+    animation-delay: 0.5625s;
+  }
+  #board .box:nth-child(n+17):nth-child(-n+24) {
+    background-color: #bbbbbb;
+    animation-delay: 0.375s;
+  }
+  #board .box:nth-child(n+17):nth-child(-n+24):nth-child(odd) {
+    background-color: transparent;
+    animation-name: counter-clockwise;
+    animation-delay: 0.75s;
+  }
+  #board .box:nth-child(n+25):nth-child(-n+32) {
+    animation-delay: 0.5625s;
+    background-color: #bbbbbb;
+  }
+  #board .box:nth-child(n+25):nth-child(-n+32):nth-child(even) {
+    animation-name: counter-clockwise;
+    background-color: transparent;
+    animation-delay: 0.9375s;
+  }
+  #board .box:nth-child(n+33):nth-child(-n+40) {
+    background-color: #bbbbbb;
+    animation-delay: 0.75s;
+  }
+  #board .box:nth-child(n+33):nth-child(-n+40):nth-child(odd) {
+    background-color: transparent;
+    animation-name: counter-clockwise;
+    animation-delay: 1.125s;
+  }
+  #board .box:nth-child(n+41):nth-child(-n+48) {
+    animation-delay: 0.9375s;
+    background-color: #bbbbbb;
+  }
+  #board .box:nth-child(n+41):nth-child(-n+48):nth-child(even) {
+    animation-name: counter-clockwise;
+    background-color: transparent;
+    animation-delay: 1.3125s;
+  }
+  #board .box:nth-child(n+49):nth-child(-n+56) {
+    background-color: #bbbbbb;
+    animation-delay: 1.125s;
+  }
+  #board .box:nth-child(n+49):nth-child(-n+56):nth-child(odd) {
+    background-color: transparent;
+    animation-name: counter-clockwise;
+    animation-delay: 1.5s;
+  }
+  #board .box:nth-child(n+57):nth-child(-n+64) {
+    animation-delay: 1.3125s;
+    background-color: #bbbbbb;
+  }
+  #board .box:nth-child(n+57):nth-child(-n+64):nth-child(even) {
+    animation-name: counter-clockwise;
+    background-color: transparent;
+    animation-delay: 1.6875s;
+  }
+  #board img {
+    height: 32.25px;
+  }
+}
+@media (max-width: 375px) {
+  #board {
+    display: inherit;
+    /*grid-template-columns: repeat(8, 70px);
+    grid-template-rows: repeat(8, 70px);*/
+    grid-template: repeat(8, 40px)/repeat(8, 40px);
+    justify-content: center;
+    padding-top: 15px;
+    overflow: hidden;
+    width: 345px;
+    height: 348px;
+  }
+  #board .box {
+    display: inherit;
+    justify-content: center;
+    align-items: center;
+    animation: clockwise 0.75s linear;
+    height: 40px;
+    width: 40px;
+  }
+  #board .box:nth-child(n+1):nth-child(-n+8) {
+    background-color: #bbbbbb;
+    animation-delay: 0s;
+  }
+  #board .box:nth-child(n+1):nth-child(-n+8):nth-child(odd) {
+    background-color: transparent;
+    animation-name: counter-clockwise;
+    animation-delay: 0.375s;
+  }
+  #board .box:nth-child(n+9):nth-child(-n+16) {
+    animation-delay: 0.1875s;
+    background-color: #bbbbbb;
+  }
+  #board .box:nth-child(n+9):nth-child(-n+16):nth-child(even) {
+    animation-name: counter-clockwise;
+    background-color: transparent;
+    animation-delay: 0.5625s;
+  }
+  #board .box:nth-child(n+17):nth-child(-n+24) {
+    background-color: #bbbbbb;
+    animation-delay: 0.375s;
+  }
+  #board .box:nth-child(n+17):nth-child(-n+24):nth-child(odd) {
+    background-color: transparent;
+    animation-name: counter-clockwise;
+    animation-delay: 0.75s;
+  }
+  #board .box:nth-child(n+25):nth-child(-n+32) {
+    animation-delay: 0.5625s;
+    background-color: #bbbbbb;
+  }
+  #board .box:nth-child(n+25):nth-child(-n+32):nth-child(even) {
+    animation-name: counter-clockwise;
+    background-color: transparent;
+    animation-delay: 0.9375s;
+  }
+  #board .box:nth-child(n+33):nth-child(-n+40) {
+    background-color: #bbbbbb;
+    animation-delay: 0.75s;
+  }
+  #board .box:nth-child(n+33):nth-child(-n+40):nth-child(odd) {
+    background-color: transparent;
+    animation-name: counter-clockwise;
+    animation-delay: 1.125s;
+  }
+  #board .box:nth-child(n+41):nth-child(-n+48) {
+    animation-delay: 0.9375s;
+    background-color: #bbbbbb;
+  }
+  #board .box:nth-child(n+41):nth-child(-n+48):nth-child(even) {
+    animation-name: counter-clockwise;
+    background-color: transparent;
+    animation-delay: 1.3125s;
+  }
+  #board .box:nth-child(n+49):nth-child(-n+56) {
+    background-color: #bbbbbb;
+    animation-delay: 1.125s;
+  }
+  #board .box:nth-child(n+49):nth-child(-n+56):nth-child(odd) {
+    background-color: transparent;
+    animation-name: counter-clockwise;
+    animation-delay: 1.5s;
+  }
+  #board .box:nth-child(n+57):nth-child(-n+64) {
+    animation-delay: 1.3125s;
+    background-color: #bbbbbb;
+  }
+  #board .box:nth-child(n+57):nth-child(-n+64):nth-child(even) {
+    animation-name: counter-clockwise;
+    background-color: transparent;
+    animation-delay: 1.6875s;
+  }
+  #board img {
+    height: 30px;
+  }
+}
+@media (max-height: 360px) {
+  #board {
+    display: inherit;
+    /*grid-template-columns: repeat(8, 70px);
+    grid-template-rows: repeat(8, 70px);*/
+    grid-template: repeat(8, 38px)/repeat(8, 38px);
+    justify-content: center;
+    padding-top: 15px;
+    overflow: hidden;
+    width: 329px;
+    height: 332px;
+  }
+  #board .box {
+    display: inherit;
+    justify-content: center;
+    align-items: center;
+    animation: clockwise 0.75s linear;
+    height: 38px;
+    width: 38px;
+  }
+  #board .box:nth-child(n+1):nth-child(-n+8) {
+    background-color: #bbbbbb;
+    animation-delay: 0s;
+  }
+  #board .box:nth-child(n+1):nth-child(-n+8):nth-child(odd) {
+    background-color: transparent;
+    animation-name: counter-clockwise;
+    animation-delay: 0.375s;
+  }
+  #board .box:nth-child(n+9):nth-child(-n+16) {
+    animation-delay: 0.1875s;
+    background-color: #bbbbbb;
+  }
+  #board .box:nth-child(n+9):nth-child(-n+16):nth-child(even) {
+    animation-name: counter-clockwise;
+    background-color: transparent;
+    animation-delay: 0.5625s;
+  }
+  #board .box:nth-child(n+17):nth-child(-n+24) {
+    background-color: #bbbbbb;
+    animation-delay: 0.375s;
+  }
+  #board .box:nth-child(n+17):nth-child(-n+24):nth-child(odd) {
+    background-color: transparent;
+    animation-name: counter-clockwise;
+    animation-delay: 0.75s;
+  }
+  #board .box:nth-child(n+25):nth-child(-n+32) {
+    animation-delay: 0.5625s;
+    background-color: #bbbbbb;
+  }
+  #board .box:nth-child(n+25):nth-child(-n+32):nth-child(even) {
+    animation-name: counter-clockwise;
+    background-color: transparent;
+    animation-delay: 0.9375s;
+  }
+  #board .box:nth-child(n+33):nth-child(-n+40) {
+    background-color: #bbbbbb;
+    animation-delay: 0.75s;
+  }
+  #board .box:nth-child(n+33):nth-child(-n+40):nth-child(odd) {
+    background-color: transparent;
+    animation-name: counter-clockwise;
+    animation-delay: 1.125s;
+  }
+  #board .box:nth-child(n+41):nth-child(-n+48) {
+    animation-delay: 0.9375s;
+    background-color: #bbbbbb;
+  }
+  #board .box:nth-child(n+41):nth-child(-n+48):nth-child(even) {
+    animation-name: counter-clockwise;
+    background-color: transparent;
+    animation-delay: 1.3125s;
+  }
+  #board .box:nth-child(n+49):nth-child(-n+56) {
+    background-color: #bbbbbb;
+    animation-delay: 1.125s;
+  }
+  #board .box:nth-child(n+49):nth-child(-n+56):nth-child(odd) {
+    background-color: transparent;
+    animation-name: counter-clockwise;
+    animation-delay: 1.5s;
+  }
+  #board .box:nth-child(n+57):nth-child(-n+64) {
+    animation-delay: 1.3125s;
+    background-color: #bbbbbb;
+  }
+  #board .box:nth-child(n+57):nth-child(-n+64):nth-child(even) {
+    animation-name: counter-clockwise;
+    background-color: transparent;
+    animation-delay: 1.6875s;
+  }
+  #board img {
+    height: 28.5px;
+  }
+}
+@media (max-width: 320px) {
+  #board {
+    display: inherit;
+    /*grid-template-columns: repeat(8, 70px);
+    grid-template-rows: repeat(8, 70px);*/
+    grid-template: repeat(8, 35px)/repeat(8, 35px);
+    justify-content: center;
+    padding-top: 15px;
+    overflow: hidden;
+    width: 305px;
+    height: 308px;
+  }
+  #board .box {
+    display: inherit;
+    justify-content: center;
+    align-items: center;
+    animation: clockwise 0.75s linear;
+    height: 35px;
+    width: 35px;
+  }
+  #board .box:nth-child(n+1):nth-child(-n+8) {
+    background-color: #bbbbbb;
+    animation-delay: 0s;
+  }
+  #board .box:nth-child(n+1):nth-child(-n+8):nth-child(odd) {
+    background-color: transparent;
+    animation-name: counter-clockwise;
+    animation-delay: 0.375s;
+  }
+  #board .box:nth-child(n+9):nth-child(-n+16) {
+    animation-delay: 0.1875s;
+    background-color: #bbbbbb;
+  }
+  #board .box:nth-child(n+9):nth-child(-n+16):nth-child(even) {
+    animation-name: counter-clockwise;
+    background-color: transparent;
+    animation-delay: 0.5625s;
+  }
+  #board .box:nth-child(n+17):nth-child(-n+24) {
+    background-color: #bbbbbb;
+    animation-delay: 0.375s;
+  }
+  #board .box:nth-child(n+17):nth-child(-n+24):nth-child(odd) {
+    background-color: transparent;
+    animation-name: counter-clockwise;
+    animation-delay: 0.75s;
+  }
+  #board .box:nth-child(n+25):nth-child(-n+32) {
+    animation-delay: 0.5625s;
+    background-color: #bbbbbb;
+  }
+  #board .box:nth-child(n+25):nth-child(-n+32):nth-child(even) {
+    animation-name: counter-clockwise;
+    background-color: transparent;
+    animation-delay: 0.9375s;
+  }
+  #board .box:nth-child(n+33):nth-child(-n+40) {
+    background-color: #bbbbbb;
+    animation-delay: 0.75s;
+  }
+  #board .box:nth-child(n+33):nth-child(-n+40):nth-child(odd) {
+    background-color: transparent;
+    animation-name: counter-clockwise;
+    animation-delay: 1.125s;
+  }
+  #board .box:nth-child(n+41):nth-child(-n+48) {
+    animation-delay: 0.9375s;
+    background-color: #bbbbbb;
+  }
+  #board .box:nth-child(n+41):nth-child(-n+48):nth-child(even) {
+    animation-name: counter-clockwise;
+    background-color: transparent;
+    animation-delay: 1.3125s;
+  }
+  #board .box:nth-child(n+49):nth-child(-n+56) {
+    background-color: #bbbbbb;
+    animation-delay: 1.125s;
+  }
+  #board .box:nth-child(n+49):nth-child(-n+56):nth-child(odd) {
+    background-color: transparent;
+    animation-name: counter-clockwise;
+    animation-delay: 1.5s;
+  }
+  #board .box:nth-child(n+57):nth-child(-n+64) {
+    animation-delay: 1.3125s;
+    background-color: #bbbbbb;
+  }
+  #board .box:nth-child(n+57):nth-child(-n+64):nth-child(even) {
+    animation-name: counter-clockwise;
+    background-color: transparent;
+    animation-delay: 1.6875s;
+  }
+  #board img {
+    height: 26.25px;
+  }
+}
+@media (max-width: 280px) {
+  #board {
+    display: inherit;
+    /*grid-template-columns: repeat(8, 70px);
+    grid-template-rows: repeat(8, 70px);*/
+    grid-template: repeat(8, 30px)/repeat(8, 30px);
+    justify-content: center;
+    padding-top: 15px;
+    overflow: hidden;
+    width: 265px;
+    height: 268px;
+  }
+  #board .box {
+    display: inherit;
+    justify-content: center;
+    align-items: center;
+    animation: clockwise 0.75s linear;
+    height: 30px;
+    width: 30px;
+  }
+  #board .box:nth-child(n+1):nth-child(-n+8) {
+    background-color: #bbbbbb;
+    animation-delay: 0s;
+  }
+  #board .box:nth-child(n+1):nth-child(-n+8):nth-child(odd) {
+    background-color: transparent;
+    animation-name: counter-clockwise;
+    animation-delay: 0.375s;
+  }
+  #board .box:nth-child(n+9):nth-child(-n+16) {
+    animation-delay: 0.1875s;
+    background-color: #bbbbbb;
+  }
+  #board .box:nth-child(n+9):nth-child(-n+16):nth-child(even) {
+    animation-name: counter-clockwise;
+    background-color: transparent;
+    animation-delay: 0.5625s;
+  }
+  #board .box:nth-child(n+17):nth-child(-n+24) {
+    background-color: #bbbbbb;
+    animation-delay: 0.375s;
+  }
+  #board .box:nth-child(n+17):nth-child(-n+24):nth-child(odd) {
+    background-color: transparent;
+    animation-name: counter-clockwise;
+    animation-delay: 0.75s;
+  }
+  #board .box:nth-child(n+25):nth-child(-n+32) {
+    animation-delay: 0.5625s;
+    background-color: #bbbbbb;
+  }
+  #board .box:nth-child(n+25):nth-child(-n+32):nth-child(even) {
+    animation-name: counter-clockwise;
+    background-color: transparent;
+    animation-delay: 0.9375s;
+  }
+  #board .box:nth-child(n+33):nth-child(-n+40) {
+    background-color: #bbbbbb;
+    animation-delay: 0.75s;
+  }
+  #board .box:nth-child(n+33):nth-child(-n+40):nth-child(odd) {
+    background-color: transparent;
+    animation-name: counter-clockwise;
+    animation-delay: 1.125s;
+  }
+  #board .box:nth-child(n+41):nth-child(-n+48) {
+    animation-delay: 0.9375s;
+    background-color: #bbbbbb;
+  }
+  #board .box:nth-child(n+41):nth-child(-n+48):nth-child(even) {
+    animation-name: counter-clockwise;
+    background-color: transparent;
+    animation-delay: 1.3125s;
+  }
+  #board .box:nth-child(n+49):nth-child(-n+56) {
+    background-color: #bbbbbb;
+    animation-delay: 1.125s;
+  }
+  #board .box:nth-child(n+49):nth-child(-n+56):nth-child(odd) {
+    background-color: transparent;
+    animation-name: counter-clockwise;
+    animation-delay: 1.5s;
+  }
+  #board .box:nth-child(n+57):nth-child(-n+64) {
+    animation-delay: 1.3125s;
+    background-color: #bbbbbb;
+  }
+  #board .box:nth-child(n+57):nth-child(-n+64):nth-child(even) {
+    animation-name: counter-clockwise;
+    background-color: transparent;
+    animation-delay: 1.6875s;
+  }
+  #board img {
+    height: 22.5px;
+  }
+}
+@media (max-width: 240px) {
+  #board {
+    display: inherit;
+    /*grid-template-columns: repeat(8, 70px);
+    grid-template-rows: repeat(8, 70px);*/
+    grid-template: repeat(8, 27px)/repeat(8, 27px);
+    justify-content: center;
+    padding-top: 15px;
+    overflow: hidden;
+    width: 241px;
+    height: 244px;
+  }
+  #board .box {
+    display: inherit;
+    justify-content: center;
+    align-items: center;
+    animation: clockwise 0.75s linear;
+    height: 27px;
+    width: 27px;
+  }
+  #board .box:nth-child(n+1):nth-child(-n+8) {
+    background-color: #bbbbbb;
+    animation-delay: 0s;
+  }
+  #board .box:nth-child(n+1):nth-child(-n+8):nth-child(odd) {
+    background-color: transparent;
+    animation-name: counter-clockwise;
+    animation-delay: 0.375s;
+  }
+  #board .box:nth-child(n+9):nth-child(-n+16) {
+    animation-delay: 0.1875s;
+    background-color: #bbbbbb;
+  }
+  #board .box:nth-child(n+9):nth-child(-n+16):nth-child(even) {
+    animation-name: counter-clockwise;
+    background-color: transparent;
+    animation-delay: 0.5625s;
+  }
+  #board .box:nth-child(n+17):nth-child(-n+24) {
+    background-color: #bbbbbb;
+    animation-delay: 0.375s;
+  }
+  #board .box:nth-child(n+17):nth-child(-n+24):nth-child(odd) {
+    background-color: transparent;
+    animation-name: counter-clockwise;
+    animation-delay: 0.75s;
+  }
+  #board .box:nth-child(n+25):nth-child(-n+32) {
+    animation-delay: 0.5625s;
+    background-color: #bbbbbb;
+  }
+  #board .box:nth-child(n+25):nth-child(-n+32):nth-child(even) {
+    animation-name: counter-clockwise;
+    background-color: transparent;
+    animation-delay: 0.9375s;
+  }
+  #board .box:nth-child(n+33):nth-child(-n+40) {
+    background-color: #bbbbbb;
+    animation-delay: 0.75s;
+  }
+  #board .box:nth-child(n+33):nth-child(-n+40):nth-child(odd) {
+    background-color: transparent;
+    animation-name: counter-clockwise;
+    animation-delay: 1.125s;
+  }
+  #board .box:nth-child(n+41):nth-child(-n+48) {
+    animation-delay: 0.9375s;
+    background-color: #bbbbbb;
+  }
+  #board .box:nth-child(n+41):nth-child(-n+48):nth-child(even) {
+    animation-name: counter-clockwise;
+    background-color: transparent;
+    animation-delay: 1.3125s;
+  }
+  #board .box:nth-child(n+49):nth-child(-n+56) {
+    background-color: #bbbbbb;
+    animation-delay: 1.125s;
+  }
+  #board .box:nth-child(n+49):nth-child(-n+56):nth-child(odd) {
+    background-color: transparent;
+    animation-name: counter-clockwise;
+    animation-delay: 1.5s;
+  }
+  #board .box:nth-child(n+57):nth-child(-n+64) {
+    animation-delay: 1.3125s;
+    background-color: #bbbbbb;
+  }
+  #board .box:nth-child(n+57):nth-child(-n+64):nth-child(even) {
+    animation-name: counter-clockwise;
+    background-color: transparent;
+    animation-delay: 1.6875s;
+  }
+  #board img {
+    height: 20.25px;
+  }
 }
 #board :nth-child(-2n+8),
 #board :nth-child(8) ~ :nth-child(-2n+15),
@@ -66,43 +1612,6 @@ body {
 #winner p {
   font-size: 3em;
   color: whitesmoke;
-}
-
-@keyframes clockwise {
-  15% {
-    transform: rotate(0.125turn) scale(0.5, 0.5);
-  }
-  30% {
-    transform: rotate(0.25turn) scale(1, 1);
-  }
-  100% {
-    transform: rotate(0.25turn) scale(1, 1);
-  }
-}
-@keyframes counter-clockwise {
-  15% {
-    transform: rotate(-0.125turn) scale(0.5, 0.5);
-  }
-  30% {
-    transform: rotate(-0.25turn) scale(1, 1);
-  }
-  100% {
-    transform: rotate(-0.25turn) scale(1, 1);
-  }
-}
-@keyframes c {
-  0% {
-    background-color: transparent;
-  }
-  50% {
-    background-color: transparent;
-  }
-  51% {
-    background-color: #bbbbbb;
-  }
-  100% {
-    background-color: #bbbbbb;
-  }
 }
 
 /*# sourceMappingURL=main.css.map */

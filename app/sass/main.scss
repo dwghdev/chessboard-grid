@@ -1,14 +1,17 @@
-@import 'resets','variables', 'boardgrid';
+@import 'resets','variables','media';
 
 body {
 	width: 100vw;
 	height: 100vh;
   background: $bgcolor;
   overflow: hidden;
+  display:grid;
+  align-items: center;
+  justify-content: center;
 }
 
 #board {
-  @include boardGrid(8, 70px);
+  @include mediaQueries();
   @include boardLightColors($boxlight);
 }
 
@@ -42,42 +45,4 @@ body {
 #winner p {
 	font-size: 3em;
 	color: whitesmoke;
-}
-
-
-@keyframes clockwise {
-  15%{
-    transform: rotate(0.125turn) scale(0.5,0.5);
-  }
-  30%{
-    transform: rotate(0.25turn) scale(1,1);
-  }
-  100%{
-    transform: rotate(0.25turn) scale(1,1);
-  }
-}
-@keyframes counter-clockwise {
-  15%{
-    transform: rotate(-0.125turn) scale(0.5,0.5);
-  }
-  30%{
-    transform: rotate(-0.25turn) scale(1,1);
-  }
-  100%{
-    transform: rotate(-0.25turn) scale(1,1);
-  }
-}
-@keyframes c {
-  0% { 
-     background-color: $boxdark;
-  }
-  50% { 
-     background-color: $boxdark;
-  }
-  51% { 
-     background-color: $boxlight;
-  }
-  100%{
-    background-color: $boxlight;
-  }
 }
