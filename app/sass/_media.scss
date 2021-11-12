@@ -9,47 +9,40 @@
     @include boardGrid(120px);
   }
 
-  @media(max-width: 1366px) {
-   
-  }
-
-  @media(max-width: 1366px) {
+  @media(max-width: $laptop) {
     @include boardGrid(90px);
   }
 
-  @media(max-width: 1200px) {
-   
+  @media(max-width: $ipadPro) {
+    @include boardGrid(105px);
   }
 
-  @media(max-width: $laptop) {
-    @include boardGrid(95px);
-  }
-
-  @media(max-height: $laptop) {
-    
+  @media(max-height: $surfacePro7) {
+    @include boardGrid(90px);
   }
 
   @media(max-width: $tablet) {
-    @include boardGrid(70px);
+    @include boardGrid(80px);
   }
 
   @media(max-height: $tablet) {
-    @include boardGrid(70px);
+    @include boardGrid(85px);
   }
 
-  @media(max-width: 600px) {
-   
+  @media(max-width: $nestHub) {
+    @include boardGrid(68px);
   }
 
-  @media(max-height: 600px) {
-   
+  @media(max-height: $nestHub) {
+    @include boardGrid(68px);
   }
 
-  @media(max-width: 540px) {
-   
+  @media (max-width: $surfaceDuo) {
+    @include boardGrid(60px);
   }
-  @media(max-height: 540px) {
-   
+
+  @media (max-height: $surfaceDuo) {
+    @include boardGrid(60px);
   }
 
   @media(max-width: 480px) {
@@ -61,13 +54,11 @@
   }
 
   @media(max-width: $mobileL) {
-    @include boardGrid(45px);
+    @include boardGrid(43px);
   }
-
-  @media(max-height: $mobileL) {
-  }
+  
   @media(max-height: $nexus5x) {
-    @include boardGrid(40px);
+    @include boardGrid(45px);
   }
 
   @media(max-height: $nexus4) {
@@ -76,10 +67,6 @@
 
   @media(max-width: $mobileM) {
     @include boardGrid(40px);
-  }
-
-  @media(max-height: $mobileM) {
-    
   }
 
   @media(max-height: $lumia550) {
@@ -91,22 +78,18 @@
   }
 
   @media(max-height: $mobileS) {
-  
+    @include boardGrid(35px);
   }
 
   @media(max-width: $galaxyFold) {
     @include boardGrid(30px);
   }
 
-  @media(max-height: 280px) {
-    
+  @media(max-height: $galaxyFold) {
+    @include boardGrid(30px);
   }
 
-  @media(max-width: $jioPhone2) {
+  @media(max-height: $jioPhone2) {
     @include boardGrid(27px);
-  }
-
-  @media(max-height: 240px) {
-   
   }
 }
