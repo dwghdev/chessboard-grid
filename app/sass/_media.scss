@@ -13,10 +13,23 @@
     @include boardGrid(90px);
   }
 
-  @media(max-width: $ipadPro) {
+  @media(max-height: $ipadPro) {
+    @include boardGrid(105px);
+  }
+  
+  @media(max-height: $kindleFireHDX) {
+    @include boardGrid(88px);
+  }
+  
+  @media(max-height: $ipadAir) {
+    @include boardGrid(85px);
+  }
+
+  @media(max-width: $ipadPro) and (max-height: 1024px){
     @include boardGrid(105px);
   }
 
+  
   @media(max-height: $surfacePro7) {
     @include boardGrid(90px);
   }
@@ -26,15 +39,15 @@
   }
 
   @media(max-height: $tablet) {
-    @include boardGrid(85px);
+    @include boardGrid(70px);
   }
 
   @media(max-width: $nestHub) {
-    @include boardGrid(68px);
+    @include boardGrid(65px);
   }
 
   @media(max-height: $nestHub) {
-    @include boardGrid(68px);
+    @include boardGrid(65px);
   }
 
   @media (max-width: $surfaceDuo) {
@@ -54,7 +67,7 @@
   }
 
   @media(max-width: $mobileL) {
-    @include boardGrid(43px);
+    @include boardGrid(40px);
   }
   
   @media(max-height: $nexus5x) {
@@ -62,7 +75,7 @@
   }
 
   @media(max-height: $nexus4) {
-    @include boardGrid(43px);
+    @include boardGrid(40px);
   }
 
   @media(max-width: $mobileM) {
@@ -89,7 +102,11 @@
     @include boardGrid(30px);
   }
 
+  @media(max-width: $jioPhone2) {
+    @include boardGrid(25px);
+  }
+
   @media(max-height: $jioPhone2) {
-    @include boardGrid(27px);
+    @include boardGrid(25px);
   }
 }
